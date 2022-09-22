@@ -1,14 +1,14 @@
 package unit;
 
+import org.junit.jupiter.api.Test;
 import replaceType.OldVehicleQuery;
 import replaceType.SqlVehicleMatcher;
-import org.junit.Test;
 
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class SqlVehicleMatcherShould {
     @Test
-    public void find_vehicles() throws Exception {
+    public void find_vehicles() {
         SqlVehicleMatcher matcher = new SqlVehicleMatcher();
         OldVehicleQuery query = new OldVehicleQuery();
         query.brandDescription = "VW Polo";

@@ -1,17 +1,16 @@
 package unit;
 
+import org.junit.jupiter.api.Test;
 import pipelines.Author;
-import org.assertj.core.api.Condition;
-import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class AuthorShould {
     @Test
-    public void collect_twitter_handles() throws Exception {
+    public void collect_twitter_handles() {
         Author author1 = new Author();
         author1.company = "Target";
         author1.twitterHandle = "@bob";
@@ -22,8 +21,6 @@ public class AuthorShould {
         authors.add(author1);
         authors.add(author2);
 
-        assertThat(
-                Author.twitterHandles(authors, "Target")                .size())
-                .isEqualTo(1);
+        assertThat(Author.twitterHandles(authors, "Target")).hasSize(1);
     }
 }

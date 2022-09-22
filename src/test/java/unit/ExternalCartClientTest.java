@@ -1,17 +1,15 @@
 package unit;
 
 import implementationChange.ExternalCartClient;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class ExternalCartClientTest {
 
-
     @Test
-    public void format_total_price_message() throws Exception {
+    public void format_total_price_message() {
         ExternalCartClient client = new ExternalCartClient();
-
-        Assert.assertEquals("Total price is 50 euro", client.formattedTotalPrice(50));
+        assertThat(client.formattedTotalPrice(50)).isEqualTo("Total price is 50 euro");
     }
-
 }

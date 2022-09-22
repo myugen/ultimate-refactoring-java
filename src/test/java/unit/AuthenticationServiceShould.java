@@ -1,21 +1,23 @@
 package unit;
 
+import org.junit.jupiter.api.Test;
 import signatureChange.AuthenticationService;
-import org.junit.Assert;
-import org.junit.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class AuthenticationServiceShould {
 
     @Test
-    public void distinguish_administrator_role() throws Exception {
+    public void distinguish_administrator_role() {
         AuthenticationService service = new AuthenticationService();
         int adminId = 12345;
-        Assert.assertTrue(service.isAuthenticated(adminId));
+        assertThat(service.isAuthenticated(adminId)).isTrue();
     }
+
     @Test
-    public void distinguish_non_admin_role() throws Exception {
+    public void distinguish_non_admin_role() {
         AuthenticationService service = new AuthenticationService();
         int normalUserId = 11111;
-        Assert.assertFalse(service.isAuthenticated(normalUserId));
+        assertThat(service.isAuthenticated(normalUserId)).isFalse();
     }
 }

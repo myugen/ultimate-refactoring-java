@@ -1,13 +1,11 @@
 package unit;
 
+import org.junit.jupiter.api.Test;
 import valueAndReference.SomeType;
-import org.junit.Test;
-
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class YouShouldUnderstandValuesAndReferences {
     @Test
-    public void because_its_fundamental() throws Exception {
+    public void because_its_fundamental() {
         SomeType instance = new SomeType();
 
         String arg1 = "bar";

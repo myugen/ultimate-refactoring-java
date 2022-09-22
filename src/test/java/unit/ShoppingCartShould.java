@@ -1,40 +1,41 @@
 package unit;
 
 import implementationChange.ShoppingCart;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class ShoppingCartShould {
     @Test
-    public void count_number_of_products() throws Exception {
+    public void count_number_of_products() {
         ShoppingCart shoppingCart = new ShoppingCart();
         shoppingCart.add(10);
 
-        Assert.assertEquals(1, shoppingCart.numberOfProducts());
+        assertThat(shoppingCart.numberOfProducts()).isEqualTo(1);
     }
 
     @Test
-    public void calculate_total_price() throws Exception {
+    public void calculate_total_price() {
         ShoppingCart shoppingCart = new ShoppingCart();
         shoppingCart.add(10);
 
-        Assert.assertEquals(10, shoppingCart.calculateTotalPrice());
+        assertThat(shoppingCart.calculateTotalPrice()).isEqualTo(10);
     }
 
     @Test
-    public void know_when_is_discount_applicable() throws Exception {
+    public void know_when_is_discount_applicable() {
         ShoppingCart shoppingCart = new ShoppingCart();
         shoppingCart.add(100);
 
-        Assert.assertTrue(shoppingCart.hasDiscount());
+        assertThat(shoppingCart.hasDiscount()).isTrue();
     }
 
     @Test
-    public void know_when_is_not_possible_to_apply_discount() throws Exception {
+    public void know_when_is_not_possible_to_apply_discount() {
         ShoppingCart shoppingCart = new ShoppingCart();
         shoppingCart.add(99);
 
-        Assert.assertFalse(shoppingCart.hasDiscount());
+        assertThat(shoppingCart.hasDiscount()).isFalse();
     }
 
 }
